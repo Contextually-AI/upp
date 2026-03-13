@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/enums/sensitivity-tier.json",
+  "title": "SensitivityTier",
+  "description": "Privacy classification for ontology labels. Higher tiers require stronger consent before data is stored or returned. Ordering: tier_public < tier_work < tier_personal < tier_sensitive < tier_internal.",
+  "type": "string",
+  "enum": ["tier_public", "tier_work", "tier_personal", "tier_sensitive", "tier_internal"],
+  "$defs": {
+    "documentation": {
+      "tier_public": "Level 1 (lowest). Safe to share broadly. Examples: preferred language, communication style.",
+      "tier_work": "Level 2. Professional context. Examples: job title, employer, work email.",
+      "tier_personal": "Level 3. Personal but non-sensitive. Examples: hobbies, food preferences, pet names.",
+      "tier_sensitive": "Level 4. Sensitive personal data. Examples: health conditions, financial information, religion.",
+      "tier_internal": "Level 5 (highest). Never shared externally — internal agent use only. Examples: internal identifiers, processing metadata."
+    }
+  }
+}

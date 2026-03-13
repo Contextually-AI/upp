@@ -1,0 +1,1147 @@
+{
+  "version": "1.0.0",
+  "type": "user",
+  "label_count": 57,
+  "labels": [
+    {
+      "name": "how_collaboration",
+      "display_name": "How Collaboration",
+      "description": "How this person collaborates with others, teamwork style",
+      "category": "HOW",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Prefers pair programming for complex features",
+        "Likes async code reviews over synchronous walkthroughs",
+        "Thrives in small cross-functional teams (3-5 people)",
+        "Prefers to work independently and sync at standups"
+      ],
+      "classification_guidance": "Captures the person's teamwork and collaboration patterns, including whether they prefer pair programming, async collaboration, or in-person brainstorming. Distinct from communication style which focuses on channels and tone rather than group dynamics.",
+      "anti_examples": [
+        "Prefers Slack over email \u2192 use how_communication",
+        "Works remotely \u2192 use where_work_environment"
+      ]
+    },
+    {
+      "name": "how_communication",
+      "display_name": "How Communication",
+      "description": "How they communicate \u2014 channels, frequency, style preferences",
+      "category": "HOW",
+      "sensitivity": "tier_public",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Prefers Slack for quick questions, email for formal requests",
+        "Likes async communication over real-time meetings",
+        "Prefers video calls with camera on for team meetings",
+        "Sends detailed written updates instead of holding meetings"
+      ],
+      "classification_guidance": "Covers preferred communication channels (Slack, email, video calls), frequency of check-ins, and interaction patterns. Focuses on the mechanics of communication rather than personality-driven tone (see who_communication_style).",
+      "anti_examples": [
+        "Is direct and blunt \u2192 use who_communication_style",
+        "Uses Figma daily \u2192 use where_digital_environments"
+      ]
+    },
+    {
+      "name": "how_content_creation",
+      "display_name": "How Content Creation",
+      "description": "How they create content \u2014 writing, video, design approaches",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Writes blog posts in Markdown, publishes on personal site",
+        "Creates technical videos with screen recordings and voiceover",
+        "Designs in Figma, follows a mobile-first approach",
+        "Outlines extensively before writing \u2014 never writes ad-hoc"
+      ],
+      "classification_guidance": "Describes their approach to creating content such as blog posts, videos, documentation, or design artifacts. Includes tools, processes, and creative methodology.",
+      "anti_examples": [
+        "Published a paper on ML \u2192 use what_publications_ip",
+        "Knows Adobe Premiere \u2192 use what_skills"
+      ]
+    },
+    {
+      "name": "how_decision_making",
+      "display_name": "How Decision Making",
+      "description": "How they make decisions \u2014 analytical, intuitive, collaborative",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Highly data-driven, needs metrics before deciding",
+        "Trusts gut instinct for people decisions, data for tech decisions",
+        "Prefers to get input from the team before committing",
+        "Conservative with risk \u2014 prefers proven approaches"
+      ],
+      "classification_guidance": "Captures decision-making methodology: data-driven vs intuitive, consensus-seeking vs autonomous, risk-tolerant vs conservative. Describes the process, not the outcomes.",
+      "anti_examples": [
+        "Prioritizes family over work \u2192 use why_priorities",
+        "Avoids confrontation \u2192 use who_personality"
+      ]
+    },
+    {
+      "name": "how_learning",
+      "display_name": "How Learning",
+      "description": "How they learn \u2014 visual, hands-on, reading, courses, mentorship",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Learns best by building projects from scratch",
+        "Prefers video tutorials over written docs",
+        "Reads research papers and technical books",
+        "Benefits from pair programming with more experienced devs"
+      ],
+      "classification_guidance": "Describes learning modalities and preferences: video tutorials, reading documentation, hands-on experimentation, formal courses, or mentorship. Focuses on the process of acquiring knowledge, not what they know.",
+      "anti_examples": [
+        "Has a CS degree \u2192 use what_education",
+        "Knows Python \u2192 use what_skills"
+      ]
+    },
+    {
+      "name": "how_problem_solving",
+      "display_name": "How Problem Solving",
+      "description": "How they approach and solve problems",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Breaks problems down into small, testable hypotheses",
+        "Likes to whiteboard and diagram before coding",
+        "Uses rubber-duck debugging regularly",
+        "Starts with the simplest possible solution, then iterates"
+      ],
+      "classification_guidance": "Captures problem-solving approach: systematic debugging, rubber-duck thinking, divide-and-conquer, or creative lateral thinking. About methodology, not the problems themselves.",
+      "anti_examples": [
+        "Good at debugging \u2192 use what_skills",
+        "Makes decisions by committee \u2192 use how_decision_making"
+      ]
+    },
+    {
+      "name": "how_tech_adoption",
+      "display_name": "How Tech Adoption",
+      "description": "How they adopt new technology \u2014 early adopter vs cautious",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Early adopter \u2014 tries new frameworks on day one",
+        "Waits for a tool to mature before adopting it",
+        "Evaluates new tech through small proof-of-concept projects",
+        "Conservative: sticks with battle-tested tools unless there's a clear benefit"
+      ],
+      "classification_guidance": "Describes their stance on adopting new technologies, frameworks, and tools. Ranges from bleeding-edge early adopter to conservative wait-and-see. Distinct from what tech they actually use.",
+      "anti_examples": [
+        "Uses React and TypeScript \u2192 use what_tech_stack",
+        "Knows Kubernetes \u2192 use what_skills"
+      ]
+    },
+    {
+      "name": "how_work_life_balance",
+      "display_name": "How Work Life Balance",
+      "description": "How they balance work and personal life, boundaries",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Strict no-work policy after 6pm",
+        "Checks email on weekends but doesn't code",
+        "Takes regular mental health days",
+        "Blends work and life \u2014 enjoys working on side projects evenings"
+      ],
+      "classification_guidance": "Captures boundaries between work and personal life, including overtime policies, weekend availability, and personal time protection strategies.",
+      "anti_examples": [
+        "Works 9-5 \u2192 use when_work_schedule",
+        "Works from home \u2192 use where_work_environment"
+      ]
+    },
+    {
+      "name": "how_workflow",
+      "display_name": "How Workflow",
+      "description": "How they organize work \u2014 task management, processes, habits",
+      "category": "HOW",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Uses Todoist for personal tasks and Jira for work",
+        "Follows a strict Pomodoro technique (25/5 intervals)",
+        "Practices Agile/Scrum with 2-week sprints",
+        "Keeps a daily standup journal in Notion"
+      ],
+      "classification_guidance": "Describes work organization: task management systems (Jira, Todoist), development processes (Agile, Kanban), personal productivity habits, and work rituals. About structure and process.",
+      "anti_examples": [
+        "Most productive in the morning \u2192 use when_productivity_patterns",
+        "Uses VS Code \u2192 use what_tech_stack"
+      ]
+    },
+    {
+      "name": "what_active_projects",
+      "display_name": "What Active Projects",
+      "description": "Current projects they're working on",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Building a personal finance tracker app",
+        "Leading the migration to microservices at work",
+        "Contributing to the FastAPI open source project",
+        "Working on a machine learning side project for music recommendation"
+      ],
+      "classification_guidance": "Lists current projects the person is actively working on, including side projects, open source contributions, and work assignments. These are temporal and change frequently.",
+      "anti_examples": [
+        "Previously worked on X \u2192 use who_work_history",
+        "Wants to build a startup \u2192 use why_goals"
+      ]
+    },
+    {
+      "name": "what_certifications",
+      "display_name": "What Certifications",
+      "description": "Professional certifications, credentials, licenses",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "AWS Solutions Architect Professional",
+        "Certified Kubernetes Administrator (CKA)",
+        "PMP (Project Management Professional)",
+        "Google Cloud Professional Data Engineer"
+      ],
+      "classification_guidance": "Professional certifications, licenses, and credentials such as AWS Solutions Architect, PMP, or CPA. Distinct from academic degrees (what_education) and general skills (what_skills).",
+      "anti_examples": [
+        "Has a PhD \u2192 use what_education",
+        "Good at cloud architecture \u2192 use what_skills"
+      ]
+    },
+    {
+      "name": "what_domain_knowledge",
+      "display_name": "What Domain Knowledge",
+      "description": "Subject matter expertise, specialized knowledge areas",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Deep expertise in payment processing and PCI compliance",
+        "Strong background in NLP and transformer architectures",
+        "Extensive knowledge of HIPAA regulations in healthcare IT",
+        "Domain expert in supply chain logistics"
+      ],
+      "classification_guidance": "Deep domain expertise in specific fields like fintech, biotech, or real estate. Broader than skills \u2014 represents understanding of an entire domain's landscape, terminology, and best practices.",
+      "anti_examples": [
+        "Knows Python \u2192 use what_skills",
+        "Works in healthcare \u2192 use who_industry"
+      ]
+    },
+    {
+      "name": "what_education",
+      "display_name": "What Education",
+      "description": "Educational background \u2014 degrees, schools, what they studied",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "BS in Computer Science from MIT",
+        "Completed a full-stack bootcamp at Hack Reactor",
+        "MBA from Wharton School of Business",
+        "Self-taught programmer, no formal CS degree"
+      ],
+      "classification_guidance": "Formal educational background including degrees, universities, bootcamps, and fields of study. Multiple entries expected for different educational milestones.",
+      "anti_examples": [
+        "AWS certified \u2192 use what_certifications",
+        "Self-taught programmer \u2192 use how_learning"
+      ]
+    },
+    {
+      "name": "what_interests_hobbies",
+      "display_name": "What Interests Hobbies",
+      "description": "Personal interests, hobbies, leisure activities",
+      "category": "WHAT",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Loves hiking and trail running",
+        "Amateur photographer, mostly landscapes",
+        "Plays guitar in a local band",
+        "Board game enthusiast, especially strategy games"
+      ],
+      "classification_guidance": "Personal interests and hobbies outside of professional work: sports, gaming, cooking, reading, music, etc. Multiple interests naturally coexist.",
+      "anti_examples": [
+        "Likes using dark mode \u2192 use what_preferences",
+        "Professional photographer \u2192 use what_skills"
+      ]
+    },
+    {
+      "name": "what_preferences",
+      "display_name": "What Preferences",
+      "description": "General preferences \u2014 tools, food, aesthetics, etc.",
+      "category": "WHAT",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Prefers dark mode in all editors and apps",
+        "Likes minimalist design aesthetics",
+        "Prefers coffee over tea, black no sugar",
+        "Favors concise documentation over verbose explanations"
+      ],
+      "classification_guidance": "General preferences spanning tools, food, aesthetics, UI themes, and lifestyle choices. Covers the broad category of 'likes and dislikes' that don't fit neatly into other labels.",
+      "anti_examples": [
+        "Enjoys hiking \u2192 use what_interests_hobbies",
+        "Uses VS Code \u2192 use what_tech_stack"
+      ]
+    },
+    {
+      "name": "what_publications_ip",
+      "display_name": "What Publications Ip",
+      "description": "Published work \u2014 papers, articles, patents, IP",
+      "category": "WHAT",
+      "sensitivity": "tier_public",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Published a paper on distributed systems at SOSP 2024",
+        "Author of 'Building Scalable APIs' (O'Reilly, 2023)",
+        "Holds a patent on real-time data sync algorithms",
+        "Writes a popular weekly newsletter on AI engineering"
+      ],
+      "classification_guidance": "Published works including academic papers, blog posts, patents, books, and other intellectual property. Each publication is a separate fact.",
+      "anti_examples": [
+        "Writes blog posts regularly \u2192 use how_content_creation",
+        "Expert in NLP \u2192 use what_domain_knowledge"
+      ]
+    },
+    {
+      "name": "what_skills",
+      "display_name": "What Skills",
+      "description": "Professional skills and competencies",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Strong in Python and Go",
+        "Excellent at technical writing",
+        "Skilled in system design and distributed systems",
+        "Good at conflict resolution and stakeholder management"
+      ],
+      "classification_guidance": "Professional and technical skills: programming languages, frameworks, soft skills, and competencies. Distinct from domain knowledge (broader expertise) and tech stack (specific tools in active use).",
+      "anti_examples": [
+        "Uses React at work \u2192 use what_tech_stack",
+        "Expert in healthcare IT \u2192 use what_domain_knowledge"
+      ]
+    },
+    {
+      "name": "what_tech_stack",
+      "display_name": "What Tech Stack",
+      "description": "Technologies, programming languages, frameworks they use",
+      "category": "WHAT",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "React + TypeScript frontend, Python FastAPI backend",
+        "AWS (EC2, Lambda, S3), Terraform for IaC",
+        "PostgreSQL and Redis for data storage",
+        "Docker and Kubernetes for container orchestration"
+      ],
+      "classification_guidance": "The specific technologies, languages, frameworks, and tools they actively use in their current work. Distinct from skills (what they can do) \u2014 this is what they currently use.",
+      "anti_examples": [
+        "Knows Java but doesn't use it \u2192 use what_skills",
+        "Uses Slack for communication \u2192 use where_digital_environments"
+      ]
+    },
+    {
+      "name": "when_life_events",
+      "display_name": "When Life Events",
+      "description": "Major life events \u2014 new job, marriage, moves, milestones",
+      "category": "WHEN",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Got married in June 2024",
+        "Relocated from NYC to London last month",
+        "Just had their first child",
+        "Graduated from university in 2022"
+      ],
+      "classification_guidance": "Significant life milestones and events: marriages, births, relocations, career changes, graduations. These are discrete temporal events, not ongoing states.",
+      "anti_examples": [
+        "Lives in NYC \u2192 use where_home",
+        "Works at Google \u2192 use who_role"
+      ]
+    },
+    {
+      "name": "when_planning_style",
+      "display_name": "When Planning Style",
+      "description": "How they plan \u2014 short vs long term, structured vs flexible",
+      "category": "WHEN",
+      "sensitivity": "tier_personal",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Plans everything in 2-week sprints",
+        "Prefers long-term roadmaps with quarterly milestones",
+        "Very spontaneous, avoids rigid schedules",
+        "Uses OKRs for quarterly and annual planning"
+      ],
+      "classification_guidance": "Their temporal planning orientation: whether they favor short-term sprints or long-term roadmaps, structured schedules or flexible ad-hoc planning. A stable personal trait.",
+      "anti_examples": [
+        "Uses Jira for task management \u2192 use how_workflow",
+        "Makes data-driven decisions \u2192 use how_decision_making"
+      ]
+    },
+    {
+      "name": "when_productivity_patterns",
+      "display_name": "When Productivity Patterns",
+      "description": "When they're most productive, peak hours, energy patterns",
+      "category": "WHEN",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Most productive in early morning, 6am-10am",
+        "Creative work best in the afternoon",
+        "Post-lunch slump around 2-3pm",
+        "Peak focus on Tuesdays and Wednesdays"
+      ],
+      "classification_guidance": "Captures peak productivity times, energy cycles, and focus patterns throughout the day or week. Multiple patterns can coexist (e.g., creative mornings, admin afternoons).",
+      "anti_examples": [
+        "Works 9-5 \u2192 use when_work_schedule",
+        "Prefers deep work blocks \u2192 use how_workflow"
+      ]
+    },
+    {
+      "name": "when_response_patterns",
+      "display_name": "When Response Patterns",
+      "description": "How quickly they respond, communication timing habits",
+      "category": "WHEN",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Responds to Slack within minutes during work hours",
+        "Emails usually answered within 24 hours",
+        "Slow to respond on weekends",
+        "Batches messages and replies twice a day"
+      ],
+      "classification_guidance": "Communication timing habits: response latency, availability windows, and patterns around when they reply to messages. Multiple patterns for different channels.",
+      "anti_examples": [
+        "Prefers async communication \u2192 use how_communication",
+        "Works evenings \u2192 use when_work_schedule"
+      ]
+    },
+    {
+      "name": "when_routines",
+      "display_name": "When Routines",
+      "description": "Daily/weekly routines and habits",
+      "category": "WHEN",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Morning run at 6:30am every day",
+        "Weekly team retrospective on Fridays at 3pm",
+        "Meal preps on Sundays for the week",
+        "Reads for 30 minutes before bed"
+      ],
+      "classification_guidance": "Regular daily or weekly routines: morning rituals, workout schedules, weekly reviews, standup meetings. Multiple routines naturally coexist.",
+      "anti_examples": [
+        "Most productive at 10am \u2192 use when_productivity_patterns",
+        "Works Monday to Friday \u2192 use when_work_schedule"
+      ]
+    },
+    {
+      "name": "when_seasonal_patterns",
+      "display_name": "When Seasonal Patterns",
+      "description": "Seasonal variations in work, mood, availability",
+      "category": "WHEN",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Takes two weeks off every August for vacation",
+        "Less productive in winter months",
+        "Busy season at work is Q4 (October-December)",
+        "Academic schedule: summers are more flexible"
+      ],
+      "classification_guidance": "Seasonal variations in availability, productivity, or mood: holiday schedules, academic calendars, fiscal year cycles, or seasonal energy patterns.",
+      "anti_examples": [
+        "Takes vacation in August \u2192 use where_travel",
+        "Gets SAD in winter \u2192 use who_health"
+      ]
+    },
+    {
+      "name": "when_timezone",
+      "display_name": "When Timezone",
+      "description": "Their timezone and local time",
+      "category": "WHEN",
+      "sensitivity": "tier_public",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "UTC-3 (Argentina Time)",
+        "Pacific Time (UTC-8)",
+        "Central European Time (UTC+1)",
+        "JST (UTC+9, Japan Standard Time)"
+      ],
+      "classification_guidance": "The person's primary timezone. Singular because a person is in one timezone at a time. Changes when they relocate.",
+      "anti_examples": [
+        "Lives in NYC \u2192 use where_home",
+        "Travels to Europe often \u2192 use where_travel"
+      ]
+    },
+    {
+      "name": "when_work_schedule",
+      "display_name": "When Work Schedule",
+      "description": "Working hours, availability, shift patterns",
+      "category": "WHEN",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Works 9am to 6pm Monday through Friday",
+        "Flexible hours, usually starts around 10am",
+        "Works four 10-hour days, Fridays off",
+        "Night shift: 10pm to 6am"
+      ],
+      "classification_guidance": "Regular working hours, shift patterns, and scheduled availability windows. Multiple schedule entries can coexist (e.g., different days have different hours).",
+      "anti_examples": [
+        "In UTC+2 timezone \u2192 use when_timezone",
+        "Takes lunch at noon \u2192 use when_routines"
+      ]
+    },
+    {
+      "name": "where_current_location",
+      "display_name": "Where Current Location",
+      "description": "Where they currently are geographically",
+      "category": "WHERE",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "singular",
+      "durability": "ephemeral",
+      "examples": [
+        "Currently in a coffee shop in Brooklyn",
+        "At a conference in Las Vegas",
+        "Working from a cabin in the mountains this week",
+        "Visiting family in Madrid"
+      ],
+      "classification_guidance": "Current geographic location at this moment. Singular \u2014 a person can only be in one place at a time. May differ from home or work location during travel.",
+      "anti_examples": [
+        "Lives in Berlin \u2192 use where_home",
+        "Traveling to Japan next week \u2192 use where_travel"
+      ]
+    },
+    {
+      "name": "where_digital_environments",
+      "display_name": "Where Digital Environments",
+      "description": "Digital platforms, virtual workspaces they use",
+      "category": "WHERE",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Active on the company Slack workspace",
+        "Uses Notion for personal knowledge management",
+        "Contributes to several GitHub organizations",
+        "Member of three Discord communities for game dev"
+      ],
+      "classification_guidance": "Digital platforms, virtual workspaces, and online environments they inhabit: Slack workspaces, Discord servers, GitHub organizations, Notion spaces. Multiple environments coexist.",
+      "anti_examples": [
+        "Uses React \u2192 use what_tech_stack",
+        "Active on Twitter \u2192 use who_social_presence"
+      ]
+    },
+    {
+      "name": "where_home",
+      "display_name": "Where Home",
+      "description": "Where they live, home city/country",
+      "category": "WHERE",
+      "sensitivity": "tier_personal",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "Lives in San Francisco, California",
+        "Based in Berlin, Germany",
+        "Home is in Buenos Aires, Argentina",
+        "Lives in a small town outside of Tokyo"
+      ],
+      "classification_guidance": "Primary residence location \u2014 city, country, or region. Singular because a person has one primary home at a time. Changes supersede previous values.",
+      "anti_examples": [
+        "Currently visiting Paris \u2192 use where_current_location",
+        "Previously lived in London \u2192 use when_life_events"
+      ]
+    },
+    {
+      "name": "where_travel",
+      "display_name": "Where Travel",
+      "description": "Travel history, patterns, preferences, upcoming trips",
+      "category": "WHERE",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Planning a trip to Japan in March",
+        "Frequently travels to London for work",
+        "Visited 15 countries so far",
+        "Prefers off-the-beaten-path destinations"
+      ],
+      "classification_guidance": "Travel history, upcoming trips, travel preferences, and frequently visited destinations. Multiple travel facts naturally coexist.",
+      "anti_examples": [
+        "Moved to Tokyo \u2192 use where_home",
+        "Currently in Barcelona \u2192 use where_current_location"
+      ]
+    },
+    {
+      "name": "where_work",
+      "display_name": "Where Work",
+      "description": "Where they work \u2014 office location, company address",
+      "category": "WHERE",
+      "sensitivity": "tier_work",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "Google campus in Mountain View, CA",
+        "WeWork co-working space in downtown Manhattan",
+        "Remote \u2014 company HQ is in Austin, TX",
+        "Office in Shoreditch, London"
+      ],
+      "classification_guidance": "Primary work location \u2014 office address, city, or campus. Singular because a person typically has one primary work location. For remote workers, this may be the company HQ or 'remote'.",
+      "anti_examples": [
+        "Works from home \u2192 use where_work_environment",
+        "Works at Google \u2192 use who_role"
+      ]
+    },
+    {
+      "name": "where_work_environment",
+      "display_name": "Where Work Environment",
+      "description": "Work setup \u2014 remote, hybrid, office, home office",
+      "category": "WHERE",
+      "sensitivity": "tier_work",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Fully remote, works from home",
+        "Hybrid \u2014 3 days in office, 2 remote",
+        "In-office five days a week",
+        "Digital nomad, works from co-working spaces"
+      ],
+      "classification_guidance": "The type of work environment: fully remote, hybrid, in-office, co-working space, or home office setup. Singular as it represents the current primary arrangement.",
+      "anti_examples": [
+        "Office is in San Francisco \u2192 use where_work",
+        "Has a standing desk \u2192 use what_preferences"
+      ]
+    },
+    {
+      "name": "who_age",
+      "display_name": "Who Age",
+      "description": "Their age, date of birth, generation",
+      "category": "WHO",
+      "sensitivity": "tier_personal",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "Born on March 15, 1990",
+        "32 years old",
+        "Millennial (born in 1988)",
+        "In their late twenties"
+      ],
+      "classification_guidance": "Age, date of birth, or generational cohort (Gen Z, Millennial, etc.). Singular \u2014 a person has one age/DOB. New values supersede old ones.",
+      "anti_examples": [
+        "Born in Germany \u2192 use who_nationality_ethnicity",
+        "Started career in 2010 \u2192 use who_work_history"
+      ]
+    },
+    {
+      "name": "who_communication_style",
+      "display_name": "Who Communication Style",
+      "description": "Their communication tone \u2014 formal, casual, direct, verbose",
+      "category": "WHO",
+      "sensitivity": "tier_public",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Very direct and to-the-point",
+        "Formal in writing, casual in person",
+        "Uses lots of emojis and informal language",
+        "Diplomatic and avoids confrontation"
+      ],
+      "classification_guidance": "Personal communication tone and style: formal vs casual, direct vs diplomatic, verbose vs terse. A personality-adjacent trait distinct from communication channel preferences (how_communication).",
+      "anti_examples": [
+        "Prefers Slack \u2192 use how_communication",
+        "Is an introvert \u2192 use who_personality"
+      ]
+    },
+    {
+      "name": "who_communities",
+      "display_name": "Who Communities",
+      "description": "Groups, organizations, communities they belong to",
+      "category": "WHO",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Active member of the Python Discord server",
+        "Part of the local running club",
+        "Member of ACM and IEEE",
+        "Volunteer at the neighborhood food bank"
+      ],
+      "classification_guidance": "Professional and personal communities, organizations, clubs, and groups the person belongs to. Multiple memberships naturally coexist.",
+      "anti_examples": [
+        "Has 10k Twitter followers \u2192 use who_social_presence",
+        "Works at Google \u2192 use who_role"
+      ]
+    },
+    {
+      "name": "who_contact_info",
+      "display_name": "Who Contact Info",
+      "description": "Email, phone, contact details",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "alex@example.com (personal email)",
+        "Phone: +1-555-0123",
+        "Telegram: @alexj",
+        "alex.johnson@company.com (work email)"
+      ],
+      "classification_guidance": "Contact information: email addresses, phone numbers, messaging handles. Multiple contact methods naturally coexist.",
+      "anti_examples": [
+        "Active on LinkedIn \u2192 use who_social_presence",
+        "Name is Alex \u2192 use who_name"
+      ]
+    },
+    {
+      "name": "who_employment_status",
+      "display_name": "Who Employment Status",
+      "description": "Employed, freelance, unemployed, retired, student",
+      "category": "WHO",
+      "sensitivity": "tier_work",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Full-time employed",
+        "Freelance consultant",
+        "Between jobs, actively looking",
+        "Part-time while finishing PhD"
+      ],
+      "classification_guidance": "Current employment status: employed full-time, part-time, freelance, self-employed, unemployed, retired, or student. Singular \u2014 one primary status at a time.",
+      "anti_examples": [
+        "Works as a software engineer \u2192 use who_role",
+        "Works at Google \u2192 use who_role"
+      ]
+    },
+    {
+      "name": "who_family",
+      "display_name": "Who Family",
+      "description": "Family situation \u2014 spouse, children, dependents",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Married with two children (ages 5 and 8)",
+        "Single, lives with a roommate",
+        "Has a partner named Sarah",
+        "Taking care of elderly parents"
+      ],
+      "classification_guidance": "Family situation including spouse/partner, children, parents, siblings, and dependents. Multiple family facts coexist (e.g., has a wife AND two kids).",
+      "anti_examples": [
+        "Close friend named Bob \u2192 use who_relationships",
+        "Got married last year \u2192 use when_life_events"
+      ]
+    },
+    {
+      "name": "who_finances",
+      "display_name": "Who Finances",
+      "description": "Financial situation, income level, budget concerns",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Comfortable salary, saving for a house",
+        "Freelance income varies month to month",
+        "Has student loan debt of about $40K",
+        "Recently started investing in index funds"
+      ],
+      "classification_guidance": "Financial situation, income range, budget constraints, savings goals, and financial concerns. Multiple financial facts can coexist (income, debt, savings goals).",
+      "anti_examples": [
+        "Wants to save for a house \u2192 use why_goals",
+        "Worried about layoffs \u2192 use why_fears"
+      ]
+    },
+    {
+      "name": "who_gender",
+      "display_name": "Who Gender",
+      "description": "Gender identity, pronouns",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "Male, he/him",
+        "Non-binary, they/them",
+        "Female, she/her",
+        "Prefers not to disclose"
+      ],
+      "classification_guidance": "Gender identity and preferred pronouns. Singular \u2014 a person has one gender identity. Updates supersede previous values.",
+      "anti_examples": [
+        "Born in 1990 \u2192 use who_age",
+        "Name is Alex \u2192 use who_name"
+      ]
+    },
+    {
+      "name": "who_health",
+      "display_name": "Who Health",
+      "description": "Health status, conditions, wellness, fitness",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Vegetarian for ethical reasons",
+        "Manages mild asthma with an inhaler",
+        "Runs 5K three times a week",
+        "Lactose intolerant"
+      ],
+      "classification_guidance": "Health-related information: medical conditions, fitness level, wellness practices, dietary restrictions, and health goals. Multiple health facts coexist.",
+      "anti_examples": [
+        "Runs every morning \u2192 use when_routines",
+        "Enjoys hiking \u2192 use what_interests_hobbies"
+      ]
+    },
+    {
+      "name": "who_industry",
+      "display_name": "Who Industry",
+      "description": "What industry/sector they work in",
+      "category": "WHO",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Fintech / financial services",
+        "Healthcare and biotech",
+        "E-commerce and retail",
+        "Education technology"
+      ],
+      "classification_guidance": "The industry or sector they work in: fintech, healthcare, education, e-commerce, etc. Can have multiple if they work across industries.",
+      "anti_examples": [
+        "Works as a PM \u2192 use who_role",
+        "Expert in healthcare \u2192 use what_domain_knowledge"
+      ]
+    },
+    {
+      "name": "who_languages",
+      "display_name": "Who Languages",
+      "description": "Languages they speak, fluency levels",
+      "category": "WHO",
+      "sensitivity": "tier_public",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Native English speaker",
+        "Fluent in Spanish and Portuguese",
+        "Learning Japanese (beginner level)",
+        "Bilingual: French and Arabic"
+      ],
+      "classification_guidance": "Spoken and written languages with fluency levels. Multiple languages naturally coexist (e.g., native English, conversational Spanish).",
+      "anti_examples": [
+        "From Brazil \u2192 use who_nationality_ethnicity",
+        "Prefers formal tone \u2192 use who_communication_style"
+      ]
+    },
+    {
+      "name": "who_name",
+      "display_name": "Who Name",
+      "description": "Their name \u2014 first, last, preferred, display name",
+      "category": "WHO",
+      "sensitivity": "tier_personal",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "Alex Johnson",
+        "Dr. Maria Garcia",
+        "Goes by Mike (Michael Thompson)",
+        "\u5f20\u4f1f (Wei Zhang)"
+      ],
+      "classification_guidance": "The person's name: first name, last name, preferred name, or display name. Singular \u2014 new name information supersedes old (e.g., name change, correction).",
+      "anti_examples": [
+        "Email is alex@example.com \u2192 use who_contact_info",
+        "Goes by @alex on Twitter \u2192 use who_social_presence"
+      ]
+    },
+    {
+      "name": "who_nationality_ethnicity",
+      "display_name": "Who Nationality Ethnicity",
+      "description": "Nationality, ethnicity, cultural background",
+      "category": "WHO",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Argentine, born and raised in Buenos Aires",
+        "Dual citizenship: US and Italian",
+        "Korean-American, second generation",
+        "British with South Asian heritage"
+      ],
+      "classification_guidance": "Nationality, ethnicity, and cultural background. Can be plural for dual citizenship or mixed heritage.",
+      "anti_examples": [
+        "Lives in Germany \u2192 use where_home",
+        "Speaks French \u2192 use who_languages"
+      ]
+    },
+    {
+      "name": "who_personality",
+      "display_name": "Who Personality",
+      "description": "Personality type, traits \u2014 MBTI, Big Five, temperament",
+      "category": "WHO",
+      "sensitivity": "tier_personal",
+      "cardinality": "singular",
+      "durability": "permanent",
+      "examples": [
+        "INTJ personality type",
+        "Introverted but warm in small groups",
+        "High conscientiousness, moderate openness (Big Five)",
+        "Analytical and detail-oriented temperament"
+      ],
+      "classification_guidance": "Personality traits, temperament, and type indicators like MBTI (INTJ), Big Five scores, or general descriptors (introverted, analytical). Singular as it represents a holistic self-assessment.",
+      "anti_examples": [
+        "Communicates formally \u2192 use who_communication_style",
+        "Avoids risk \u2192 use how_decision_making"
+      ]
+    },
+    {
+      "name": "who_relationships",
+      "display_name": "Who Relationships",
+      "description": "Professional and personal relationships, who they work with",
+      "category": "WHO",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Works closely with Jake on the backend team",
+        "Mentored by Dr. Chen at university",
+        "Best friends with Lisa since college",
+        "Regular collaborator with the DevOps team"
+      ],
+      "classification_guidance": "Professional and personal relationships: colleagues, mentors, friends, collaborators. Multiple relationships naturally coexist.",
+      "anti_examples": [
+        "Has two kids \u2192 use who_family",
+        "Member of Python community \u2192 use who_communities"
+      ]
+    },
+    {
+      "name": "who_role",
+      "display_name": "Who Role",
+      "description": "Job role, title, position, responsibilities",
+      "category": "WHO",
+      "sensitivity": "tier_work",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Senior Software Engineer at Google",
+        "Product Manager, Growth Team",
+        "CTO and co-founder of a startup",
+        "Freelance UX Designer"
+      ],
+      "classification_guidance": "Current job role, title, and primary responsibilities. Singular \u2014 represents the current primary role. Changes when they switch jobs.",
+      "anti_examples": [
+        "Previously was a junior dev \u2192 use who_work_history",
+        "Works in fintech \u2192 use who_industry"
+      ]
+    },
+    {
+      "name": "who_seniority",
+      "display_name": "Who Seniority",
+      "description": "Seniority level \u2014 junior, mid, senior, lead, executive",
+      "category": "WHO",
+      "sensitivity": "tier_work",
+      "cardinality": "singular",
+      "durability": "transient",
+      "examples": [
+        "Senior level (IC5)",
+        "Engineering Lead",
+        "Mid-level, about 4 years of experience",
+        "VP of Engineering"
+      ],
+      "classification_guidance": "Current seniority level in their career: junior, mid-level, senior, lead, staff, principal, director, VP, or executive. Singular \u2014 one level at a time.",
+      "anti_examples": [
+        "Works as a software engineer \u2192 use who_role",
+        "Has 10 years experience \u2192 use who_work_history"
+      ]
+    },
+    {
+      "name": "who_social_presence",
+      "display_name": "Who Social Presence",
+      "description": "Social media profiles, online presence, followers",
+      "category": "WHO",
+      "sensitivity": "tier_public",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Twitter/X: @alexdev with 5K followers",
+        "GitHub: github.com/alexj \u2014 active open source contributor",
+        "Personal blog at alexjohnson.dev",
+        "LinkedIn profile with 2K connections"
+      ],
+      "classification_guidance": "Social media profiles, online presence, follower counts, and personal websites. Multiple profiles across platforms coexist.",
+      "anti_examples": [
+        "Email is alex@example.com \u2192 use who_contact_info",
+        "Member of DevOps community \u2192 use who_communities"
+      ]
+    },
+    {
+      "name": "who_work_history",
+      "display_name": "Who Work History",
+      "description": "Past jobs, career path, employment history",
+      "category": "WHO",
+      "sensitivity": "tier_work",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Previously worked at Amazon as a SDE for 3 years",
+        "Started career as a junior designer at a small agency",
+        "Transitioned from marketing to software engineering in 2020",
+        "Co-founded a startup in 2018 that was acquired in 2021"
+      ],
+      "classification_guidance": "Employment history, past roles, career trajectory, and previous companies. Multiple entries naturally coexist as career milestones accumulate.",
+      "anti_examples": [
+        "Currently a PM at Google \u2192 use who_role",
+        "Started a new job \u2192 use when_life_events"
+      ]
+    },
+    {
+      "name": "why_aspirations",
+      "display_name": "Why Aspirations",
+      "description": "Long-term dreams, what they aspire to become",
+      "category": "WHY",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Wants to become a CTO at a mid-size company",
+        "Dreams of writing a bestselling technical book",
+        "Aspires to build a startup that makes education accessible",
+        "Hopes to retire early and travel the world"
+      ],
+      "classification_guidance": "Long-term dreams and aspirations: what they want to become, where they see themselves in 5-10 years, life ambitions. More future-oriented and abstract than concrete goals.",
+      "anti_examples": [
+        "Wants to finish the project by Friday \u2192 use why_goals",
+        "Values honesty \u2192 use why_values_motivations"
+      ]
+    },
+    {
+      "name": "why_fears",
+      "display_name": "Why Fears",
+      "description": "Professional and personal fears, anxieties, worries",
+      "category": "WHY",
+      "sensitivity": "tier_sensitive",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Imposter syndrome in senior-level meetings",
+        "Worried about job stability in the current market",
+        "Anxious about public speaking",
+        "Fear of making the wrong career decision"
+      ],
+      "classification_guidance": "Professional and personal fears, anxieties, and worries: fear of failure, job loss, imposter syndrome, health concerns. Multiple fears coexist.",
+      "anti_examples": [
+        "Frustrated with slow CI \u2192 use why_pain_points",
+        "Has anxiety disorder \u2192 use who_health"
+      ]
+    },
+    {
+      "name": "why_goals",
+      "display_name": "Why Goals",
+      "description": "Current goals \u2014 career, personal, project-level",
+      "category": "WHY",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Get promoted to Senior Engineer this year",
+        "Ship the v2 of the product by end of Q1",
+        "Learn Rust and build a side project with it",
+        "Run a half marathon in under 2 hours"
+      ],
+      "classification_guidance": "Current concrete goals: career milestones, project deliverables, personal targets, learning objectives. More actionable and near-term than aspirations.",
+      "anti_examples": [
+        "Dreams of starting a company \u2192 use why_aspirations",
+        "Focuses on family first \u2192 use why_priorities"
+      ]
+    },
+    {
+      "name": "why_pain_points",
+      "display_name": "Why Pain Points",
+      "description": "Frustrations, challenges, things that bother them",
+      "category": "WHY",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "ephemeral",
+      "examples": [
+        "Frustrated with slow CI/CD pipeline at work",
+        "Too many meetings killing deep work time",
+        "Struggling with the legacy codebase",
+        "Annoyed by constant context switching between projects"
+      ],
+      "classification_guidance": "Current frustrations, challenges, and pain points in work or life. Things that bother them or slow them down. Multiple pain points coexist.",
+      "anti_examples": [
+        "Afraid of public speaking \u2192 use why_fears",
+        "Wants better tooling \u2192 use why_goals"
+      ]
+    },
+    {
+      "name": "why_priorities",
+      "display_name": "Why Priorities",
+      "description": "What they prioritize, what matters most right now",
+      "category": "WHY",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "transient",
+      "examples": [
+        "Family comes first, work second",
+        "Currently prioritizing career growth over compensation",
+        "Health and fitness are top priority this quarter",
+        "Shipping the MVP is the #1 focus right now"
+      ],
+      "classification_guidance": "Current priorities and what matters most to them right now. What they choose to focus on when trade-offs are needed. Multiple priorities can coexist in ranked order.",
+      "anti_examples": [
+        "Values integrity \u2192 use why_values_motivations",
+        "Goal is to ship v2 \u2192 use why_goals"
+      ]
+    },
+    {
+      "name": "why_values_motivations",
+      "display_name": "Why Values Motivations",
+      "description": "Core values, what motivates and drives them",
+      "category": "WHY",
+      "sensitivity": "tier_personal",
+      "cardinality": "plural",
+      "durability": "permanent",
+      "examples": [
+        "Values autonomy and independence above all",
+        "Motivated by building things that help people",
+        "Believes strongly in open source and knowledge sharing",
+        "Driven by craftsmanship \u2014 quality over speed"
+      ],
+      "classification_guidance": "Core personal and professional values, intrinsic motivations, and driving principles: autonomy, impact, craftsmanship, fairness. Deep and relatively stable traits.",
+      "anti_examples": [
+        "Wants a promotion \u2192 use why_goals",
+        "Personality is INTJ \u2192 use who_personality"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v1.0.0/label-definition.json",
+  "title": "LabelDefinition",
+  "description": "Schema definition for a single ontology label — the fundamental unit of UPP's taxonomy. Labels categorize facts into structured categories within an ontology.",
+  "type": "object",
+  "required": ["name", "display_name", "description", "category", "sensitivity", "cardinality", "durability", "examples"],
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$",
+      "description": "Machine-readable label key. MUST use the format {category}_{descriptor} (e.g., 'who_name', 'where_home'). Lowercase alphanumeric with underscores, starting with a letter."
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable name (e.g., 'Full Name', 'Home Location')."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Concise description of what this label captures."
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Top-level grouping defined by the ontology (e.g., user/v1 uses WHO, WHAT, WHERE, etc.)."
+    },
+    "sensitivity": {
+      "$ref": "./enums/sensitivity-tier.json",
+      "description": "Privacy sensitivity tier. Higher tiers require stronger consent."
+    },
+    "cardinality": {
+      "$ref": "./enums/cardinality.json",
+      "description": "Whether the label accepts one value (singular) or many (plural). Singular labels trigger supersession on new values."
+    },
+    "durability": {
+      "$ref": "./enums/durability.json",
+      "description": "Expected lifespan of facts under this label: permanent, transient, or ephemeral."
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Example values to guide classification and extraction."
+    },
+    "classification_guidance": {
+      "type": "string",
+      "description": "Classification and disambiguation guidance for label extraction."
+    },
+    "anti_examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Counter-examples to clarify label boundaries and prevent misclassification."
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/ingest-request.json",
+  "title": "upp/ingest — Request Parameters",
+  "description": "Ingest events from text. Given a text, the server extracts relevant events and persists them. Events are immutable (event-sourcing). If a new event contradicts an existing one, the previous is marked as superseded.",
+  "type": "object",
+  "required": ["entity_key", "text"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user who owns these events."
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Text from which to extract events. The server analyzes this text, extracts relevant personal facts, and persists them."
+    }
+  }
+}

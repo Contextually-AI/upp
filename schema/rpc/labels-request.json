@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/labels-request.json",
+  "title": "upp/labels — Request Parameters",
+  "description": "List all labels defined in the server's ontology. Returns label definitions including category, sensitivity tier, cardinality, and durability.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {}
+}

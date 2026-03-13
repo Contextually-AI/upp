@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/export-response.json",
+  "title": "upp/export — Response Result",
+  "description": "Result of an export operation. Contains the file path, event count, and timestamp.",
+  "type": "object",
+  "required": ["file", "event_count", "exported_at"],
+  "additionalProperties": false,
+  "properties": {
+    "file": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Path or URI to the generated export file (.json)."
+    },
+    "event_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of events exported."
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp of when the export was generated."
+    }
+  }
+}

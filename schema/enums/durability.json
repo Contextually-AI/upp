@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/enums/durability.json",
+  "title": "Durability",
+  "description": "Indicates how long a fact is expected to remain valid. Influences time-based decay behavior in the retrieval scoring algorithm.",
+  "type": "string",
+  "enum": ["permanent", "transient", "ephemeral"],
+  "$defs": {
+    "documentation": {
+      "permanent": "Unlikely to change over a person's lifetime. Very slow decay or none. Examples: date of birth, native language, education history.",
+      "transient": "Changes over months or years. Standard decay rate. Examples: job role, tech stack, hobbies, preferred tools.",
+      "ephemeral": "Changes frequently — days or weeks. Aggressive decay or explicit expiration. Examples: current location, active projects, current mood."
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/labels-response.json",
+  "title": "upp/labels — Response Result",
+  "description": "List of label definitions from the requested ontology.",
+  "type": "object",
+  "required": ["result"],
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "../label-definition.json"
+      },
+      "description": "Label definitions including category, sensitivity tier, cardinality, and durability."
+    }
+  }
+}

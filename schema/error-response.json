@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/error-response.json",
+  "title": "UPPErrorResponse",
+  "description": "JSON-RPC 2.0 error response format for UPP operations. Includes both standard JSON-RPC error codes (-32700 to -32603) and UPP-specific error codes (-32001 to -32099).",
+  "type": "object",
+  "required": ["jsonrpc", "id", "error"],
+  "additionalProperties": false,
+  "properties": {
+    "jsonrpc": {
+      "type": "string",
+      "const": "2.0",
+      "description": "JSON-RPC protocol version. MUST be '2.0'."
+    },
+    "id": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "integer" },
+        { "type": "null" }
+      ],
+      "description": "Request identifier. Matches the id from the corresponding request."
+    },
+    "error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "integer",
+          "description": "A number indicating the error type. Standard JSON-RPC codes: -32700 (Parse error), -32600 (Invalid Request), -32601 (Method not found), -32602 (Invalid params), -32603 (Internal error). UPP-specific codes: -32001 (User not found), -32002 (Ontology not found), -32003 (Store failed), -32004 (Extraction failed). Implementations may define additional codes in the range -32000 to -32099."
+        },
+        "message": {
+          "type": "string",
+          "description": "A short, human-readable description of the error."
+        },
+        "data": {
+          "oneOf": [
+            { "type": "object" },
+            { "type": "null" }
+          ],
+          "description": "Additional structured data about the error. Implementation-specific. Servers SHOULD include relevant context to aid debugging. Servers MUST NOT include sensitive user data."
+        }
+      },
+      "description": "Error object following the JSON-RPC 2.0 specification."
+    }
+  }
+}

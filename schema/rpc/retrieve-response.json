@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/retrieve-response.json",
+  "title": "upp/retrieve — Response Result",
+  "description": "Retrieval result containing events ranked by relevance to the query.",
+  "type": "object",
+  "required": ["result"],
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "../event.json"
+      },
+      "description": "Events ranked by relevance to the query."
+    }
+  }
+}

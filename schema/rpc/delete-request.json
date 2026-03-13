@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/delete-request.json",
+  "title": "upp/delete — Request Parameters",
+  "description": "Delete events for a user. Required for compliance (GDPR right to erasure, CCPA). If event_ids is not provided, deletes all events for the user.",
+  "type": "object",
+  "required": ["entity_key"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user whose events to delete."
+    },
+    "event_ids": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minItems": 1
+        },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "Specific event IDs to delete. If not provided, all events for the user are deleted."
+    }
+  }
+}

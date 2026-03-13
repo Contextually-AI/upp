@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/info-response.json",
+  "title": "upp/info — Response Result",
+  "description": "Server metadata including protocol version, ontology, supported operations, and conformance level.",
+  "type": "object",
+  "required": ["protocol_version", "ontology", "operations", "conformance_level"],
+  "additionalProperties": false,
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "description": "Protocol version (semver, e.g., '1.0.0')."
+    },
+    "ontology": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The ontology identifier this server operates with (e.g., 'user/v1')."
+    },
+    "operations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Operations supported by this server (e.g., ['upp/ingest', 'upp/retrieve', 'upp/info'])."
+    },
+    "conformance_level": {
+      "type": "integer",
+      "enum": [1, 2, 3],
+      "description": "Server conformance level. 1: Minimal (ingest, retrieve, info). 2: Full (+ events, delete, labels). 3: Portable (+ export, import)."
+    }
+  }
+}

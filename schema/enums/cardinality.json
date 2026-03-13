@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/enums/cardinality.json",
+  "title": "Cardinality",
+  "description": "Defines whether a label accepts a single value or multiple concurrent values. Controls conflict behavior during event storage.",
+  "type": "string",
+  "enum": ["singular", "plural"],
+  "$defs": {
+    "documentation": {
+      "singular": "Only one value at a time. New values supersede old ones via REPLACE action. Examples: who_name, where_home.",
+      "plural": "Multiple values coexist. New values are added alongside existing ones via ADD action. Examples: what_skills, who_languages."
+    }
+  }
+}

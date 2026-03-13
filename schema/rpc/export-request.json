@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/export-request.json",
+  "title": "upp/export — Request Parameters",
+  "description": "Export all events for a user in UPP portable format. For migration between vendors or backup.",
+  "type": "object",
+  "required": ["entity_key"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user whose events to export."
+    }
+  }
+}

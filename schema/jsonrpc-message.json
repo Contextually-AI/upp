@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/jsonrpc-message.json",
+  "title": "UPPJsonRpcMessage",
+  "description": "JSON-RPC 2.0 message envelope for UPP protocol communication. Covers both request and response messages. All UPP operations are transported as JSON-RPC 2.0 messages over stdio, HTTP+SSE, or WebSocket transports.",
+  "oneOf": [
+    { "$ref": "#/$defs/Request" },
+    { "$ref": "#/$defs/Notification" },
+    { "$ref": "#/$defs/SuccessResponse" },
+    { "$ref": "#/$defs/ErrorResponse" }
+  ],
+  "$defs": {
+    "Request": {
+      "type": "object",
+      "description": "A JSON-RPC 2.0 request message. The client sends this to invoke a UPP method on the server.",
+      "required": ["jsonrpc", "method", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "type": "string",
+          "const": "2.0",
+          "description": "JSON-RPC protocol version. MUST be '2.0'."
+        },
+        "id": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "integer" }
+          ],
+          "description": "Unique request identifier. The server MUST include this same id in the response."
+        },
+        "method": {
+          "type": "string",
+          "pattern": "^upp/[a-z_]+$",
+          "description": "The UPP method to invoke. MUST use the 'upp/' prefix (e.g., 'upp/ingest', 'upp/retrieve', 'upp/events', 'upp/delete', 'upp/info', 'upp/labels', 'upp/export', 'upp/import').",
+          "examples": [
+            "upp/ingest",
+            "upp/retrieve",
+            "upp/events",
+            "upp/delete",
+            "upp/info",
+            "upp/labels",
+            "upp/export",
+            "upp/import"
+          ]
+        },
+        "params": {
+          "type": "object",
+          "description": "Method-specific parameters. Structure depends on the method being called. See individual RPC schema files for parameter definitions."
+        }
+      }
+    },
+    "Notification": {
+      "type": "object",
+      "description": "A JSON-RPC 2.0 notification (request without an id). The server MUST NOT respond to notifications.",
+      "required": ["jsonrpc", "method"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "type": "string",
+          "const": "2.0",
+          "description": "JSON-RPC protocol version. MUST be '2.0'."
+        },
+        "method": {
+          "type": "string",
+          "description": "The UPP method or event name."
+        },
+        "params": {
+          "type": "object",
+          "description": "Optional notification parameters."
+        }
+      },
+      "not": {
+        "required": ["id"]
+      }
+    },
+    "SuccessResponse": {
+      "type": "object",
+      "description": "A JSON-RPC 2.0 success response. Returned when a request completes successfully.",
+      "required": ["jsonrpc", "id", "result"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "type": "string",
+          "const": "2.0",
+          "description": "JSON-RPC protocol version. MUST be '2.0'."
+        },
+        "id": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "integer" },
+            { "type": "null" }
+          ],
+          "description": "Request identifier matching the original request."
+        },
+        "result": {
+          "description": "Method-specific result data. Structure depends on the method that was called. See individual RPC schema files for result definitions."
+        }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "description": "A JSON-RPC 2.0 error response. Returned when a request fails.",
+      "required": ["jsonrpc", "id", "error"],
+      "additionalProperties": false,
+      "properties": {
+        "jsonrpc": {
+          "type": "string",
+          "const": "2.0",
+          "description": "JSON-RPC protocol version. MUST be '2.0'."
+        },
+        "id": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "integer" },
+            { "type": "null" }
+          ],
+          "description": "Request identifier matching the original request. May be null if the request id could not be determined."
+        },
+        "error": {
+          "type": "object",
+          "required": ["code", "message"],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "type": "integer",
+              "description": "Error code. Standard JSON-RPC codes (-32700 to -32603) and UPP-specific codes (-32001 to -32099)."
+            },
+            "message": {
+              "type": "string",
+              "description": "A short, human-readable description of the error."
+            },
+            "data": {
+              "description": "Additional structured data about the error. Implementation-specific."
+            }
+          }
+        }
+      }
+    }
+  }
+}

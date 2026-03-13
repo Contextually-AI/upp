@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/event.json",
+  "title": "Event",
+  "description": "A structured personal fact before persistence. Events are the atomic unit of information in UPP. They are immutable once created (event-sourcing). This is the pre-storage form; see StoredEvent for the post-storage form.",
+  "type": "object",
+  "required": ["value", "labels", "confidence", "source_type"],
+  "additionalProperties": false,
+  "properties": {
+    "value": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The extracted fact as natural-language text."
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "description": "One or more ontology label keys this fact maps to (e.g., 'who_name', 'where_home')."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Extraction confidence score in the range [0.0, 1.0]."
+    },
+    "source_type": {
+      "$ref": "./enums/source-type.json",
+      "description": "Provenance classification: user_stated, agent_observed, or inferred."
+    },
+    "valid_from": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "ISO-8601 start of the fact's validity window."
+    },
+    "valid_until": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "ISO-8601 end of the fact's validity window."
+    }
+  }
+}

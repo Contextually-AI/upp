@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v1.0.0/ontology.json",
+  "title": "Ontology",
+  "description": "A versioned collection of LabelDefinitions that forms the complete taxonomy for structured context classification. Ontologies define the set of labels available for classifying events.",
+  "type": "object",
+  "required": ["type", "version", "labels", "label_count"],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Ontology type identifier (e.g., 'user', 'enterprise', 'domain'). Used with version to form the full ontology reference."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "description": "Semantic version of the ontology (e.g., '1.0.0'). MUST follow Semantic Versioning 2.0.0."
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "$ref": "./label-definition.json"
+      },
+      "description": "All label definitions in this ontology."
+    },
+    "label_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total number of labels in this ontology. MUST equal the length of the 'labels' array."
+    },
+    "metadata": {
+      "oneOf": [
+        {
+          "type": "object",
+          "description": "Optional metadata about the ontology (author, description, domain, etc.)."
+        },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "Optional metadata about the ontology."
+    }
+  }
+}

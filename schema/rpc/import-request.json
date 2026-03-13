@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/import-request.json",
+  "title": "upp/import — Request Parameters",
+  "description": "Import events from a UPP export file. Enables data migration between vendors.",
+  "type": "object",
+  "required": ["entity_key", "file"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the destination entity."
+    },
+    "file": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Path or URI to the export file (.json) to import."
+    }
+  }
+}

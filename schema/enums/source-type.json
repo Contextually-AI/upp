@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/enums/source-type.json",
+  "title": "SourceType",
+  "description": "Classifies how a fact was obtained. Source types form a precedence hierarchy used during conflict resolution — explicitly stated facts outrank observed ones, which in turn outrank inferred ones. Precedence: user_stated (3) > agent_observed (2) > inferred (1) > null (0).",
+  "type": "string",
+  "enum": ["user_stated", "agent_observed", "inferred"],
+  "$defs": {
+    "documentation": {
+      "user_stated": "The user explicitly told the agent this fact. Highest trust level (precedence 3).",
+      "agent_observed": "The agent observed or derived the fact from conversation context without an explicit statement (precedence 2).",
+      "inferred": "The system inferred the fact from indirect signals such as timezone from message timing or language from vocabulary (precedence 1)."
+    }
+  }
+}

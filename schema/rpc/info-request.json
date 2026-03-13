@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/info-request.json",
+  "title": "upp/info — Request Parameters",
+  "description": "Server metadata request. No parameters required.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
