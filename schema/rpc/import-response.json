@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/import-response.json",
+  "title": "upp/import — Response Result",
+  "description": "Result of an import operation with counts of imported and skipped events.",
+  "type": "object",
+  "required": ["imported_count", "skipped_count"],
+  "additionalProperties": false,
+  "properties": {
+    "imported_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of events successfully imported."
+    },
+    "skipped_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of events skipped (e.g., duplicates or invalid)."
+    }
+  }
+}

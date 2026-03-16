@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+.coverage
+.coverage.*
+coverage/
+htmlcov/
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Native extensions
+*.so
+*.pyd
+
+# TypeScript / Node
+node_modules/
+*.js
+*.d.ts
+*.js.map
+!jest.config.js
+!vitest.config.ts
+!eslint.config.js
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

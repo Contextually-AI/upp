@@ -1,0 +1,54 @@
+{
+  "name": "@upp/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript reference implementation of the Universal Personalization Protocol (UPP) data models",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/ tests/",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "upp",
+    "universal-person-protocol",
+    "personal-context",
+    "event-sourcing",
+    "ontology"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "@vitest/coverage-v8": "^1.6.0",
+    "eslint": "^10.0.3",
+    "prettier": "^3.0.0",
+    "typescript": "^5.4.0",
+    "typescript-eslint": "^8.56.1",
+    "vitest": "^1.6.0"
+  }
+}

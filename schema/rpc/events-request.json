@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/events-request.json",
+  "title": "upp/events — Request Parameters",
+  "description": "List all stored events for a user. Direct access to the event store without ranking or intelligence.",
+  "type": "object",
+  "required": ["entity_key"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user whose events to list."
+    }
+  }
+}

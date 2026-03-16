@@ -1,0 +1,8 @@
+# GitHub Linguist overrides
+# Mark TypeScript implementation as non-primary for language stats
+implementations/typescript/** linguist-vendored
+# Mark generated/lock files
+implementations/typescript/package-lock.json linguist-generated
+# Ensure Python is detected
+implementations/python/** linguist-detectable
+examples/python/** linguist-detectable

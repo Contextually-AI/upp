@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/ingest-response.json",
+  "title": "upp/ingest — Response Result",
+  "description": "Storage result containing the persisted events with server-assigned IDs, timestamps, and lifecycle status.",
+  "type": "object",
+  "required": ["result"],
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "../stored-event.json"
+      },
+      "description": "The persisted events with server-assigned IDs, timestamps, and lifecycle status."
+    }
+  }
+}

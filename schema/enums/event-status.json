@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/enums/event-status.json",
+  "title": "EventStatus",
+  "description": "Lifecycle state of a stored event. Events are immutable; their status transitions follow the event-sourcing pattern defined in the UPP specification.",
+  "type": "string",
+  "enum": ["valid", "staged", "superseded"],
+  "$defs": {
+    "documentation": {
+      "valid": "Current, active, and authoritative event. Included in retrieval results.",
+      "staged": "Low-confidence event pending reinforcement. Not included in standard retrieval until promoted to valid.",
+      "superseded": "Replaced by a newer event. Retained for audit trail but excluded from retrieval."
+    }
+  }
+}

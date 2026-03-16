@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/events-response.json",
+  "title": "upp/events — Response Result",
+  "description": "List of all stored events for the user.",
+  "type": "object",
+  "required": ["result"],
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "../stored-event.json"
+      },
+      "description": "All stored events for the user."
+    }
+  }
+}

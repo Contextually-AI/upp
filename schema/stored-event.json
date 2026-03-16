@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/stored-event.json",
+  "title": "StoredEvent",
+  "description": "An Event after persistence. Includes server-assigned identifiers, timestamps, and lifecycle status. StoredEvent is immutable — status transitions (e.g., marking as superseded) are the only state changes allowed.",
+  "type": "object",
+  "required": ["id", "entity_key", "value", "labels", "confidence", "source_type", "status", "created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique event identifier (UUID v4). Assigned by the server."
+    },
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user who owns this event."
+    },
+    "value": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The extracted fact as natural-language text."
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "description": "Ontology labels linked to this event."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Extraction confidence score in the range [0.0, 1.0]."
+    },
+    "source_type": {
+      "$ref": "./enums/source-type.json",
+      "description": "Provenance classification: user_stated, agent_observed, or inferred."
+    },
+    "valid_from": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "ISO-8601 start of the fact's validity window."
+    },
+    "valid_until": {
+      "oneOf": [
+        { "type": "string", "format": "date-time" },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "ISO-8601 end of the fact's validity window."
+    },
+    "status": {
+      "$ref": "./enums/event-status.json",
+      "description": "Lifecycle status: valid, staged, or superseded."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 creation timestamp. Assigned by the server."
+    },
+    "superseded_by": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "uuid"
+        },
+        { "type": "null" }
+      ],
+      "default": null,
+      "description": "UUID of the event that replaced this one. Present only when status is 'superseded'."
+    }
+  }
+}

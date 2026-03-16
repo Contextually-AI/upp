@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://upp-protocol.org/schema/v0.1.0/rpc/retrieve-request.json",
+  "title": "upp/retrieve — Request Parameters",
+  "description": "Retrieve relevant events for a user based on a free-text query. The server interprets the query and returns ranked events.",
+  "type": "object",
+  "required": ["entity_key", "query"],
+  "additionalProperties": false,
+  "properties": {
+    "entity_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique identifier of the user to retrieve context for."
+    },
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Free-text query. The server interprets this and decides what events are relevant."
+    }
+  }
+}
